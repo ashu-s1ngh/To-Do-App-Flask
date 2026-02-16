@@ -1,0 +1,266 @@
+/* ===========================
+   1. Variables & Reset
+   =========================== */
+:root {
+    --primary-color: #4F46E5;       /* Indigo */
+    --primary-hover: #4338ca;
+    --danger-color: #ef4444;        /* Red */
+    --danger-hover: #dc2626;
+    --success-color: #10b981;       /* Green */
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --bg-body: #f3f4f6;
+    --bg-card: #ffffff;
+    --border-radius: 8px;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ===========================
+   2. Layout & Header
+   =========================== */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+main {
+    flex: 1; /* Pushes footer down */
+    padding: 2rem 0;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    background-color: #e5e7eb;
+    margin-top: auto;
+}
+
+/* ===========================
+   3. Buttons & Forms
+   =========================== */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-clear {
+    background-color: var(--danger-color);
+    margin-top: 10px;
+}
+
+.btn-clear:hover {
+    background-color: var(--danger-hover);
+}
+
+.btn-small {
+    background-color: var(--text-light);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.btn-small:hover {
+    background-color: var(--text-dark);
+}
+
+/* ===========================
+   4. Login & Card Styles
+   =========================== */
+.login_box,.register_box, .task-box {
+    background-color: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.login_box, .register_box {
+    max-width: 400px;
+    margin: 2rem auto; /* Center on page */
+}
+
+.login_box h2, .task-box h2, .register_box h2 {
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+.form_group {
+    margin-bottom: 1.25rem;
+}
+
+.form_group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.task-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.task-form input {
+    margin-bottom: 0; /* Override default input margin */
+}
+
+/* ===========================
+   5. Task Table
+   =========================== */
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.task-table th, 
+.task-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.task-table th {
+    font-weight: 600;
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.task-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Status Badges */
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: #e5e7eb; /* Default gray */
+    color: var(--text-dark);
+}
+
+/* Dynamic colors based on status text */
+.badge.pending, .badge.todo {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.badge.in-progress, .badge.doing {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.badge.completed, .badge.done {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+/* ===========================
+   6. Flash Messages
+   =========================== */
+.flash {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+    background-color: #eff6ff;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+}
+
+.flash.error {
+    background-color: #fef2f2;
+    color: #991b1b;
+    border-color: #fecaca;
+}
+
+.flash.success {
+    background-color: #f0fdf4;
+    color: #166534;
+    border-color: #bbf7d0;
+}
