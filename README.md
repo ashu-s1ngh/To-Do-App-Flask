@@ -108,7 +108,6 @@ To-Do-App-Flask/
 │
 ├── run.py
 ├── requirements.txt
-├── sample.html
 └── README.md
 ```
 
@@ -131,3 +130,4 @@ This project is open-source and free to use.
 ---
 
 ⭐ *Feel free to fork, modify, and expand it with features like login, due dates, or APIs.*
+
